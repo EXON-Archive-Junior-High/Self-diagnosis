@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from selenium import webdriver
 import time
 
@@ -7,6 +8,14 @@ NAME = ""
 SCHOOL = ""
 BIRTH_DAY = "" #ex) 071022
 
+setting = open("setting.txt", 'r', encoding='UTF8')
+t = setting.read()
+
+a = t.split(',')
+CHROME_DRIVER = a[0]
+NAME = a[1]
+SCHOOL = a[2]
+BIRTH_DAY = a[3]
 
 f = open("Time.txt", 'r')
 t = f.read()
