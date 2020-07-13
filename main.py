@@ -16,6 +16,17 @@ NAME = a[0]
 SCHOOL = a[1]
 BIRTH_DAY = a[2]
 
+options = webdriver.ChromeOptions()
+options.add_argument('headless')
+options.add_argument('window-size=1920x1080')
+options.add_argument(
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/83.0.4103.116 "
+        "Safari/537.36"
+        )
+options.add_argument("disable-gpu")
+
 f = open("Time.txt", 'r')
 t = f.read()
 
@@ -28,7 +39,7 @@ if (t != time.strftime('%d', time.localtime(time.time()))):
     print("자가진단 시작")
 
     url = 'https://eduro.goe.go.kr/stv_cvd_co00_002.do'
-    driver = webdriver.Chrome(CHROME_DRIVER)
+    driver = webdriver.Chrome(CHROME_DRIVER, options=options)
     driver.get(url)
 
     birth = driver.find_element_by_id('frnoRidno')
