@@ -1,54 +1,68 @@
 from selenium import webdriver
 import time
 
-CHROME_DRIVER = "" #ex) D:/chromedriver.exe
-NAME = ""
-SCHOOL = ""
-BIRTH_DAY = "" #ex) 071022
+CHROME_DRIVER = "D:/chromedriver.exe" #ex) D:/chromedriver.exe
+NAME = "박시혁"
+SCHOOL = "중앙기독중학교"
+BIRTH_DAY = "071022" #ex) 071022
 
-print("자가진단 시작")
 
-url = 'https://eduro.goe.go.kr/stv_cvd_co00_002.do'
-driver = webdriver.Chrome(CHROME_DRIVER)
-driver.get(url)
+f = open("Time.txt", 'r')
+t = f.read()
 
-birth = driver.find_element_by_id('frnoRidno')
-birth.clear()
-birth.send_keys(BIRTH_DAY)
+if (t != time.strftime('%d', time.localtime(time.time()))):
+    f.close()
+    f = open("Time.txt", 'w')
+    f.write(time.strftime('%d', time.localtime(time.time())))
+    f.close()
 
-name = driver.find_element_by_id('pName')
-name.clear()
-name.send_keys(NAME)
+    print("자가진단 시작")
 
-schoolName = driver.find_element_by_id('schulNm')
-schoolName.clear()
-schoolName.send_keys(SCHOOL)
+    url = 'https://eduro.goe.go.kr/stv_cvd_co00_002.do'
+    driver = webdriver.Chrome(CHROME_DRIVER)
+    driver.get(url)
 
-button = driver.find_element_by_id('btnConfirm')
-button.click()
-#학교정보 때문에 먹히는 현상으로 다시 한번
+    birth = driver.find_element_by_id('frnoRidno')
+    birth.clear()
+    birth.send_keys(BIRTH_DAY)
 
-button.click()
+    name = driver.find_element_by_id('pName')
+    name.clear()
+    name.send_keys(NAME)
 
-time.sleep(1)
-b1 = driver.find_element_by_id('rspns011')
-b1.click()
+    schoolName = driver.find_element_by_id('schulNm')
+    schoolName.clear()
+    schoolName.send_keys(SCHOOL)
 
-b2 = driver.find_element_by_id('rspns02')
-b2.click()
+    button = driver.find_element_by_id('btnConfirm')
+    button.click()
+    #학교정보 때문에 먹히는 현상으로 다시 한번
 
-b3 = driver.find_element_by_id('rspns070')
-b3.click()
+    button.click()
 
-b4 = driver.find_element_by_id('rspns080')
-b4.click()
+    time.sleep(1)
+    b1 = driver.find_element_by_id('rspns011')
+    b1.click()
 
-b5 = driver.find_element_by_id('rspns090')
-b5.click()
+    b2 = driver.find_element_by_id('rspns02')
+    b2.click()
 
-button = driver.find_element_by_id('btnConfirm')
-button.click()
+    b3 = driver.find_element_by_id('rspns070')
+    b3.click()
 
-print("완료")
+    b4 = driver.find_element_by_id('rspns080')
+    b4.click()
+
+    b5 = driver.find_element_by_id('rspns090')
+    b5.click()
+
+    button = driver.find_element_by_id('btnConfirm')
+    button.click()
+
+    print("완료")
+else:
+    print("이미 자가진단을 하셨습니다.")
+    f.close()
+
 
 
