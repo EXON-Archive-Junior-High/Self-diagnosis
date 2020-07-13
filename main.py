@@ -3,7 +3,7 @@ from selenium import webdriver
 import time
 
 
-CHROME_DRIVER = "" #ex) D:/chromedriver.exe
+CHROME_DRIVER = "chromedriver.exe"
 NAME = ""
 SCHOOL = ""
 BIRTH_DAY = "" #ex) 071022
@@ -12,10 +12,9 @@ setting = open("setting.txt", 'r', encoding='UTF8')
 t = setting.read()
 
 a = t.split(',')
-CHROME_DRIVER = a[0]
-NAME = a[1]
-SCHOOL = a[2]
-BIRTH_DAY = a[3]
+NAME = a[0]
+SCHOOL = a[1]
+BIRTH_DAY = a[2]
 
 f = open("Time.txt", 'r')
 t = f.read()
