@@ -56,6 +56,5 @@ button = driver.find_element_by_id('btnConfirm')
 button.click()
 
 print("완료")
-time.sleep(5)
 
 
