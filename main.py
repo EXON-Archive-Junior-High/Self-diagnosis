@@ -2,10 +2,10 @@ from selenium import webdriver
 import time
 
 
-CHROME_DRIVER = "D:/chromedriver.exe" #ex) D:/chromedriver.exe
-NAME = "박시혁"
-SCHOOL = "중앙기독중학교"
-BIRTH_DAY = "071022" #ex) 071022
+CHROME_DRIVER = "" #ex) D:/chromedriver.exe
+NAME = ""
+SCHOOL = ""
+BIRTH_DAY = "" #ex) 071022
 
 
 f = open("Time.txt", 'r')
