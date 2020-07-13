@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 
+CHROME_DRIVER = "" #ex) D:/chromedriver.exe
 NAME = ""
 SCHOOL = ""
 BIRTH_DAY = "" #ex) 071022
@@ -8,7 +9,7 @@ BIRTH_DAY = "" #ex) 071022
 print("자가진단 시작")
 
 url = 'https://eduro.goe.go.kr/stv_cvd_co00_002.do'
-driver = webdriver.Chrome('D:/chromedriver.exe')
+driver = webdriver.Chrome(CHROME_DRIVER)
 driver.get(url)
 
 birth = driver.find_element_by_id('frnoRidno')
