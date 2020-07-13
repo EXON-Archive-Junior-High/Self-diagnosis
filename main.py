@@ -35,20 +35,24 @@ if (t != time.strftime('%d', time.localtime(time.time()))):
     birth = driver.find_element_by_id('frnoRidno')
     birth.clear()
     birth.send_keys(BIRTH_DAY)
+    print("생년월일 입력")
 
     name = driver.find_element_by_id('pName')
     name.clear()
     name.send_keys(NAME)
+    print("성명 입력")
 
     schoolName = driver.find_element_by_id('schulNm')
     schoolName.clear()
     schoolName.send_keys(SCHOOL)
+    print("학교이름 입력")
 
     button = driver.find_element_by_id('btnConfirm')
     button.click()
     #학교정보 때문에 먹히는 현상으로 다시 한번
 
     button.click()
+    print("")
 
     time.sleep(1)
     b1 = driver.find_element_by_id('rspns011')
