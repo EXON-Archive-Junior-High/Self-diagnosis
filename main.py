@@ -36,7 +36,7 @@ if (t != time.strftime('%d', time.localtime(time.time()))):
     f.write(time.strftime('%d', time.localtime(time.time())))
     f.close()
 
-    print("자가진단 시작")
+    print("---자가진단 시작---")
 
     url = 'https://eduro.goe.go.kr/stv_cvd_co00_002.do'
     driver = webdriver.Chrome(CHROME_DRIVER, options=options)
